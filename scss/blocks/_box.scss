@@ -178,4 +178,46 @@
         position:absolute;
         top: 10px;
     }     
+
+	&__count-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 200px;
+        border: 1px solid #555;
+        border-radius: 4px;
+        margin-top: 50px;
+	}
+
+	&__count-minus {
+        width: 100%;
+        background: none;
+        border: none;
+        border-right: 2px solid #555;
+        font-size: 40px;
+        cursor: pointer;
+	}
+
+	&__count {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        background: none;
+        font-size: 30px;
+	}
+
+
+    &__sum-count{
+        margin-right: 10px;
+    }
+
+	&__count-plus {
+        width: 100%;
+        background: none;
+        border: none;
+        border-left: 2px solid #555;
+        font-size: 40px;
+        cursor: pointer;
+	}
 }

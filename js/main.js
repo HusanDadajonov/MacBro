@@ -1,6 +1,10 @@
 let elList = document.querySelector(".box__list");
 let elWrap = document.querySelector(".box__wrap");
 let allImgBtn = document.querySelectorAll(".box__btns--img");
+let elPlusBtn = document.querySelector(".box__count-plus");
+let elMinusBtn = document.querySelector(".box__count-minus");
+let elSumCount = document.querySelector(".box__sum-count");
+let elCount = document.querySelector(".box__count");
 let sliderlength;
 let sum = 0;
 let val = 0;
@@ -85,3 +89,45 @@ function check(){
         })
     })
 }
+
+
+changeSum(document.getElementById("gb"));
+changeSum(document.getElementById("gb-2"));
+
+function changeOnlySum(btn,count){
+    let elSum = +elSumCount.textContent;
+    btn.addEventListener("click", ()=> {
+        elSum += count;
+        elSumCount.textContent = elSum
+    })
+}
+
+changeOnlySum(document.getElementById("box__gb-big"),50023);
+changeOnlySum(document.getElementById("box_gb-btn-big"),10023);
+changeOnlySum(document.getElementById("tb"),102023);
+
+let defCount = +elSumCount.textContent;
+
+function changeSum(btn){
+    btn.addEventListener("click", ()=> elSumCount.textContent = defCount)
+}
+
+elPlusBtn.addEventListener("click", e => {
+    let elSum = +elSumCount.textContent;
+    let elCountMac = +elCount.textContent
+    elCountMac ++;
+    elSum += defCount;
+    elSumCount.textContent = elSum;
+    elCount.textContent = elCountMac;
+    if(elCountMac >= 2)elMinusBtn.disabled = false;
+})
+elMinusBtn.addEventListener("click", ()=> {
+    let elSum = +elSumCount.textContent;
+    let elCountMac = +elCount.textContent;
+    elCountMac --;
+    elSum -= defCount;
+    elSumCount.textContent = elSum;
+    elCount.textContent = elCountMac;
+    if(elCountMac <= 2)elMinusBtn.disabled = true;
+})
+
