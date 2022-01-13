@@ -84,6 +84,7 @@ function check(){
             if(e.target.id != "tb"){
                 document.getElementById("gb").style.display = "flex";
                 document.querySelector("#box__gb-big").classList.remove("box__btns--img-active");
+                document.getElementById("gb").classList.add("box__btns--img-active");
                 document.querySelector(".box__gb-img").textContent = 8;
             }
         })
@@ -98,18 +99,18 @@ function changeOnlySum(btn,count){
     let elSum = +elSumCount.textContent;
     btn.addEventListener("click", ()=> {
         elSum += count;
-        elSumCount.textContent = elSum
+        elSumCount.textContent = elSum;
     })
 }
 
-changeOnlySum(document.getElementById("box__gb-big"),50023);
-changeOnlySum(document.getElementById("box_gb-btn-big"),10023);
-changeOnlySum(document.getElementById("tb"),102023);
+changeOnlySum(document.getElementById("box__gb-big"),150023);
+changeOnlySum(document.getElementById("box_gb-btn-big"),510023);
+changeOnlySum(document.getElementById("tb"),192023);
 
 let defCount = +elSumCount.textContent;
-
+elMinusBtn.disabled = true;
 function changeSum(btn){
-    btn.addEventListener("click", ()=> elSumCount.textContent = defCount)
+    btn.addEventListener("click", ()=> elSumCount.textContent = defCount);
 }
 
 elPlusBtn.addEventListener("click", e => {
@@ -119,7 +120,7 @@ elPlusBtn.addEventListener("click", e => {
     elSum += defCount;
     elSumCount.textContent = elSum;
     elCount.textContent = elCountMac;
-    if(elCountMac >= 2)elMinusBtn.disabled = false;
+    if(elCountMac >= 1)elMinusBtn.disabled = false;
 })
 elMinusBtn.addEventListener("click", ()=> {
     let elSum = +elSumCount.textContent;
@@ -128,6 +129,6 @@ elMinusBtn.addEventListener("click", ()=> {
     elSum -= defCount;
     elSumCount.textContent = elSum;
     elCount.textContent = elCountMac;
-    if(elCountMac <= 2)elMinusBtn.disabled = true;
+    if(elCountMac <= 1)elMinusBtn.disabled = true;
 })
 
