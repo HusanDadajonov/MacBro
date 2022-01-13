@@ -491,6 +491,10 @@ img {
   pointer-events: none;
 }
 
+.box #tb {
+  display: none;
+}
+
 .box__item--btn {
   padding: 0;
   display: -webkit-box;

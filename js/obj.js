@@ -21,3 +21,23 @@ let macBook = {
      'https://cdn.macbro.uz/macbro/c190d5ec-36f5-4046-9818-133de39f4df6'
     ]
   }
+
+
+
+class Calc{
+  static pow(a,b){
+    return a**b;
+  }
+
+  static arrSum(arr){
+    let sum = arr.reduce((a,b) => a + b);
+    return sum;
+  }
+  static
+}
+
+console.log(Calc.pow(4,2));
+
+let arr = [32,3,2,5,3,2];
+
+console.log(Calc.arrSum(arr));

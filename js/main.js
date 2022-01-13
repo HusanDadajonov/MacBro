@@ -56,15 +56,32 @@ function getBgbtns(){
     editGb(document.querySelectorAll(".box__btns--storage"),document.querySelector(".box__gb-storage"));
 }
 getBgbtns();
-document.querySelector("#box_gb-btn-big").addEventListener("click", (e)=> {
-    document.querySelector("#box_gb-btn-big").parentElement.innerHTML += `<button id="tb" class="box__gb-btn box__btns--storage">1TB</button>`
+document.querySelector("#box_gb-btn-big").addEventListener("click", createGb)
+function createGb(){
+    document.getElementById("tb").style.display = "flex";
     getBtns();
     getBgbtns();
     if(bool == 1){
-        document.getElementById("tb").addEventListener("click",()=> document.getElementById("gb").remove())
+        document.getElementById("tb").addEventListener("click",()=> {
+            document.getElementById("gb").style.display = "none";
+            document.querySelector("#box__gb-big").classList.add("box__btns--img-active");
+            document.querySelector(".box__gb-img").textContent = document.querySelector("#box__gb-big").textContent.slice(0,-2);
+            check();
+            getBtns();
+        });
+        bool = 0;
     }
-    bool = 0;
-    
-})
-
+    document.getElementById("gb").addEventListener("click", e => document.getElementById("tb").style.display = "none");
+}
 document.querySelectorAll(".box__btns--color").forEach(item => item.addEventListener("click", e => document.querySelector(".box__color").innerHTML = e.target.id));
+function check(){
+    document.querySelectorAll(".box__btns--storage").forEach(item => {
+        item.addEventListener("click", e => {
+            if(e.target.id != "tb"){
+                document.getElementById("gb").style.display = "flex";
+                document.querySelector("#box__gb-big").classList.remove("box__btns--img-active");
+                document.querySelector(".box__gb-img").textContent = 8;
+            }
+        })
+    })
+}
